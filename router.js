@@ -31,5 +31,13 @@ Router.get("/log/", (req, res) => {
     else res.json(data);
   });
 });
+Router.get("/users/", (req, res) => {
+  database.getAllUsers((err, users) => {
+    if (err) res.json({ error: err });
+    else {
+      res.json(users);
+    }
+  });
+});
 
 module.exports = Router;
